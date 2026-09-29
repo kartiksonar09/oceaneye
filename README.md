@@ -1,8 +1,8 @@
-# 🌊 OceanEye
+# Traptor
 
 > **Autonomous Maritime Oil Spill Detection, Lagrangian Drift Modeling & Vessel Attribution Platform**
 
-OceanEye is an end-to-end maritime intelligence and environmental enforcement platform. It fuses **Sentinel-1 Synthetic Aperture Radar (SAR)** satellite imagery, **Copernicus Marine (CMEMS)** ocean currents and wind fields, **Automatic Identification System (AIS)** vessel tracking data, and **machine learning models** to autonomously detect marine oil slicks, model their past and future trajectory, and mathematically attribute responsibility to culprit vessels.
+Traptor is an end-to-end maritime intelligence and environmental enforcement platform. It fuses **Sentinel-1 Synthetic Aperture Radar (SAR)** satellite imagery, **Copernicus Marine (CMEMS)** ocean currents and wind fields, **Automatic Identification System (AIS)** vessel tracking data, and **machine learning models** to autonomously detect marine oil slicks, model their past and future trajectory, and mathematically attribute responsibility to culprit vessels.
 
 ---
 
