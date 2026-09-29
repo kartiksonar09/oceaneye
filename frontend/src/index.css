@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   OCEAN EYE — THEME TOKEN SYSTEM
+   All component classes reference these CSS custom properties.
+   Theme switching is done by toggling the `.light` class on <html>.
+   Default (no class / .dark class) = dark mode.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── DARK THEME (DEFAULT) ─────────────────────────────────────────────── */
+:root,
+html.dark {
+  color-scheme: dark;
+
+  /* Radar surface scale — dark navy */
+  --radar-950: #05080C;
+  --radar-900: #090D14;
+  --radar-850: #0E141E;
+  --radar-800: #141C2A;
+  --radar-750: #1A2436;
+  --radar-700: #223046;
+  --radar-600: #2D3F5C;
+  --radar-500: #4A6288;
+  --radar-400: #7B93B8;
+  --radar-300: #A4B8D5;
+  --radar-200: #CDD9E8;
+  --radar-100: #F0F4F9;
+
+  /* Spill amber */
+  --spill-default: #F59E0B;
+  --spill-amber:   #F59E0B;
+  --spill-glow:    rgba(245, 158, 11, 0.25);
+  --spill-border:  #D97706;
+  --spill-dark:    #78350F;
+
+  /* Vessel teal */
+  --vessel-default: #0D9488;
+  --vessel-teal:    #14B8A6;
+  --vessel-cyan:    #06B6D4;
+  --vessel-track:   rgba(20, 184, 166, 0.4);
+
+  /* Suspect red */
+  --suspect-default: #EF4444;
+  --suspect-crimson: #DC2626;
+  --suspect-ring:    rgba(239, 68, 68, 0.4);
+  --suspect-glow:    rgba(239, 68, 68, 0.2);
+
+  /* App-level */
+  --app-bg:             #05080C;
+  --leaflet-bg:         #05080C;
+  --tooltip-bg:         #0E141E;
+  --tooltip-fg:         #CDD9E8;
+  --tooltip-border:     #223046;
+  --scrollbar-track:    #090d14;
+  --scrollbar-thumb:    #223046;
+  --scrollbar-hover:    #4a6288;
+}
+
+/* ─── LIGHT THEME ───────────────────────────────────────────────────────── */
+html.light {
+  color-scheme: light;
+
+  /* Radar surface scale — steel white to slate (inverted direction) */
+  --radar-950: #F5F7FA;
+  --radar-900: #EAEEF4;
+  --radar-850: #E0E6EF;
+  --radar-800: #D3DCE8;
+  --radar-750: #C2CEDF;
+  --radar-700: #A8B8CC;
+  --radar-600: #8198AF;
+  --radar-500: #566E87;
+  --radar-400: #3A5268;
+  --radar-300: #1E3348;
+  --radar-200: #0F1F30;
+  --radar-100: #071420;
+
+  /* Spill amber — darkened for WCAG AA on light backgrounds */
+  --spill-default: #B45309;
+  --spill-amber:   #B45309;
+  --spill-glow:    rgba(180, 83, 9, 0.15);
+  --spill-border:  #92400E;
+  --spill-dark:    #FEF3C7;
+
+  /* Vessel teal — darkened for WCAG AA on light */
+  --vessel-default: #0F766E;
+  --vessel-teal:    #0D9488;
+  --vessel-cyan:    #0891B2;
+  --vessel-track:   rgba(13, 148, 136, 0.25);
+
+  /* Suspect red — darker for light-mode contrast */
+  --suspect-default: #DC2626;
+  --suspect-crimson: #B91C1C;
+  --suspect-ring:    rgba(185, 28, 28, 0.3);
+  --suspect-glow:    rgba(185, 28, 28, 0.1);
+
+  /* App-level */
+  --app-bg:          #F5F7FA;
+  --leaflet-bg:      #E8EDF3;
+  --tooltip-bg:      #FFFFFF;
+  --tooltip-fg:      #0F1F30;
+  --tooltip-border:  #A8B8CC;
+  --scrollbar-track: #EAEEF4;
+  --scrollbar-thumb: #A8B8CC;
+  --scrollbar-hover: #566E87;
+}
+
+/* ─── BODY ──────────────────────────────────────────────────────────────── */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--app-bg);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* ─── SCROLLBARS ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb  { background: var(--scrollbar-thumb); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+
+/* ─── LEAFLET THEMING ───────────────────────────────────────────────────── */
+.leaflet-container {
+  background: var(--leaflet-bg) !important;
+  font-family: inherit;
+}
+
+html.dark .leaflet-tile  { filter: brightness(0.95) contrast(1.05); }
+html.light .leaflet-tile { filter: brightness(1.0) contrast(1.02) saturate(0.9); }
+
+.leaflet-tile-error {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--tooltip-bg) !important;
+  color: var(--tooltip-fg) !important;
+  border: 1px solid var(--tooltip-border) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content { margin: 8px 12px !important; line-height: 1.4 !important; }
+.leaflet-popup-tip {
+  background: var(--tooltip-bg) !important;
+  border: 1px solid var(--tooltip-border) !important;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--radar-500) !important;
+  padding: 4px 8px !important;
+}
+.leaflet-container a.leaflet-popup-close-button:hover { color: var(--radar-100) !important; }
+
+/* Leaflet tooltip */
+.leaflet-tooltip {
+  background: var(--tooltip-bg) !important;
+  color: var(--tooltip-fg) !important;
+  border: 1px solid var(--tooltip-border) !important;
+  border-radius: 2px !important;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.leaflet-tooltip-top::before    { border-top-color: var(--tooltip-border) !important; }
+.leaflet-tooltip-right::before  { border-right-color: var(--tooltip-border) !important; }
+.leaflet-tooltip-left::before   { border-left-color: var(--tooltip-border) !important; }
+.leaflet-tooltip-bottom::before { border-bottom-color: var(--tooltip-border) !important; }
+
+/* ─── VESSEL MARKER ─────────────────────────────────────────────────────── */
+.vessel-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease-out;
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────────────────────────── */
+@keyframes radar-ping {
+  0%   { transform: scale(0.8); opacity: 0.9; }
+  70%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.radar-beacon { animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+@keyframes dash-march { to { stroke-dashoffset: -20; } }
+.animated-suspect-vector path {
+  stroke-dasharray: 6, 6;
+  animation: dash-march 1.2s linear infinite;
+}
+
+/* ─── MAP CURSOR ────────────────────────────────────────────────────────── */
+.map-crosshair { cursor: crosshair !important; }
+
+/* ─── SMOOTH THEME TRANSITIONS ──────────────────────────────────────────── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+/* Exempt animations from transition override */
+.animate-spin, .animate-pulse, .animate-ping,
+.radar-beacon, .animated-suspect-vector path, .vessel-icon-container,
+[class*="animate-"] {
+  transition-property: none !important;
+}
+
+/* ─── PDF PRINT — always light/white ────────────────────────────────────── */
+@media print {
+  :root, html.dark, html.light {
+    --radar-950: #FFFFFF;
+    --radar-900: #F8F9FA;
+    --radar-850: #F0F2F5;
+    --radar-800: #E5E8EE;
+    --radar-750: #D8DCE4;
+    --radar-700: #B0B8C4;
+    --radar-600: #8A95A3;
+    --radar-500: #5C6878;
+    --radar-400: #374456;
+    --radar-300: #1E2D3D;
+    --radar-200: #0D1724;
+    --radar-100: #030A12;
+    --spill-amber: #B45309;
+    --vessel-teal: #0D9488;
+    --suspect-crimson: #B91C1C;
+    --app-bg: #FFFFFF;
+    color-scheme: light;
+  }
+  .leaflet-container { display: none !important; }
+}

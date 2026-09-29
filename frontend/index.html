@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCEAN EYE // Maritime SAR &amp; AIS Intelligence Console</title>
+    <meta name="description" content="Maritime intelligence dashboard for detecting SAR oil spills, cross-referencing AIS ship-tracking telemetry, and attributing suspect vessels." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!--
+      NO-FOUC THEME SCRIPT — runs synchronously before any React/CSS paint.
+      Reads localStorage 'oceaneye_theme', falls back to prefers-color-scheme.
+    -->
+    <script>
+      (function() {
+        var s = localStorage.getItem('oceaneye_theme');
+        var pl = window.matchMedia('(prefers-color-scheme: light)').matches;
+        var t = (s === 'light' || s === 'dark') ? s : (pl ? 'light' : 'dark');
+        document.documentElement.classList.add(t);
+      })();
+    </script>
+  </head>
+  <body class="bg-radar-950 text-radar-200 antialiased overflow-hidden select-none font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

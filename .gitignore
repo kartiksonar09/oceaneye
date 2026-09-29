@@ -1,0 +1,42 @@
+# Secrets
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Large datasets
+data/
+datasets/
+
+# Satellite imagery
+*.tif
+*.tiff
+*.zip
+
+# AI models
+*.pth
+*.pt
+*.h5
+*.onnx
+*.joblib
+*.ubj
+*.bin
+models/**
+!models/
+!models/*/
+!models/*/.gitkeep
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+
+# OS/editor
+.DS_Store
+.vscode/

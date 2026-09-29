@@ -1,0 +1,28 @@
+{
+  "wakashio": {
+    "name": "Wakashio Oil Spill",
+    "latitude": -20.4,
+    "longitude": 57.75,
+    "start_date": "2020-08-05",
+    "end_date": "2020-08-17",
+    "radius_km": 100
+  },
+
+  "sanchi": {
+    "name": "Sanchi Oil Spill",
+    "latitude": 28.5,
+    "longitude": 125.0,
+    "start_date": "2018-01-05",
+    "end_date": "2018-01-20",
+    "radius_km": 150
+  },
+
+  "event3": {
+    "name": "Third Oil Spill Event",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "start_date": "2020-01-01",
+    "end_date": "2020-01-10",
+    "radius_km": 100
+  }
+}
